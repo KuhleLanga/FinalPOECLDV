@@ -1,0 +1,32 @@
+﻿@model IEnumerable<POEPart2.Models.Products>
+
+@{
+    ViewData["Title"] = "Products Search";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-controller="Products" asp-action="Index" method="get">
+    <input type="text" name="searchString" placeholder="Search for products..." />
+    <input type="submit" value="Search" />
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ProductName</th>
+            <th>ProductDescription</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ProductName</td>
+                <td>@item.ProductDescription</td>
+                <td>@item.Price</td>
+            </tr>
+        }
+    </tbody>
+</table>
